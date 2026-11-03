@@ -1,5 +1,7 @@
 Project Hub 1.0.3 brings Sonora, Worktable, PadForge and Velvet into one Windows installer.
 
+The smaller web installer requires Internet access and downloads only the selected tools from this signed release channel.
+
 - Choose each tool and its automatic-update preference on the first setup screen.
 - Detect and reuse existing installations; current versions do not create duplicate copies.
 - Update older verified standalone apps in their original folder, with backups and protected user data.
