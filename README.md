@@ -4,7 +4,7 @@ One installer for **Sonora, Worktable, PadForge, and Velvet**. Choose the tools 
 
 ## Download
 
-**[Download Project Hub for Windows x64](https://github.com/Xpomodz/project-hub-downloads/releases/latest/download/Project-Hub-Setup-1.0.3-x64.exe)**
+**[Download Project Hub for Windows x64](https://github.com/Xpomodz/project-hub-downloads/releases/latest/download/Project-Hub-Setup-1.0.4-x64.exe)**
 
 [Release notes and files](https://github.com/Xpomodz/project-hub-downloads/releases/latest) · [SHA-256 checksums](https://github.com/Xpomodz/project-hub-downloads/releases/latest/download/SHA256SUMS.txt)
 
@@ -23,7 +23,7 @@ This Windows installer is **unsigned**. Keep Windows security enabled if Windows
 | Tool | Version |
 |---|---|
 | Sonora | 1.0.0 (collection release identifier) |
-| Worktable | 2.0.0 |
+| Worktable | 2.0.1 |
 | PadForge | 0.2.2 |
 | Velvet | 1.4.0 |
 
