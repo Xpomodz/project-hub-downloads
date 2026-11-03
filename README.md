@@ -4,15 +4,15 @@ One installer for **Sonora, Worktable, PadForge, and Velvet**. Choose the tools 
 
 ## Download
 
-**[Download Project Hub for Windows x64](https://github.com/Xpomodz/project-hub-downloads/releases/latest/download/Project-Hub-Web-Setup-1.0.3-x64.exe)**
+**[Download Project Hub for Windows x64](https://github.com/Xpomodz/project-hub-downloads/releases/latest/download/Project-Hub-Setup-1.0.3-x64.exe)**
 
 [Release notes and files](https://github.com/Xpomodz/project-hub-downloads/releases/latest) · [SHA-256 checksums](https://github.com/Xpomodz/project-hub-downloads/releases/latest/download/SHA256SUMS.txt)
 
-1. Open the installer on Windows 10/11 x64.
-2. Choose tools and optional automatic updates on the first screen. Existing copies are marked **installed** and reused.
+1. Open the installer on Windows 10/11 x64 and click **Next**. It downloads and verifies about 111 MB of setup files automatically.
+2. The tool-choice screen then opens. Choose tools and optional automatic updates. Existing copies are marked **installed** and reused.
 3. Choose a folder and finish setup. Open Project Hub to launch apps or add more later.
 
-An Internet connection is required: the smaller installer downloads only the tools you select. Automatic update checks use this repository's signed public release feed; only newer published app versions are installed. Updates wait while an app is running. Existing user data is preserved, and standalone updates retain the original app folder.
+An Internet connection is required. Download only the EXE linked above; it fetches and verifies the setup parts automatically, then downloads the tools you select. The individual `.part` assets are supporting files, not separate steps for you. Automatic update checks use this repository's signed public release feed; only newer published app versions are installed. Updates wait while an app is running. Existing user data is preserved, and standalone updates retain the original app folder.
 
 Velvet downloads its local AI engine and models on first launch, which can require several GB. PadForge's optional virtual controller driver may need a Windows administrator prompt and restart. The hub does not silently install system drivers or change audio devices.
 
