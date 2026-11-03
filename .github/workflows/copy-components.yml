@@ -34,10 +34,22 @@ jobs:
           import hashlib, json, os, re, subprocess
           with open('catalog.json') as source:
               catalog = json.load(source)
+          def assets(tag):
+              return json.loads(subprocess.check_output(['gh', 'release', 'view', tag, '--json', 'assets']))['assets']
+          sources = {a['name']: a for a in assets(os.environ['SOURCE_TAG'])}
+          targets = {a['name']: a for a in assets(os.environ['TARGET_TAG'])}
           for app in catalog['payload']['apps']:
               package = app['package']
               name = package['file']
-              assert re.fullmatch(r'(sonora|worktable|padforge|velvet|nook)-[0-9]+\.[0-9]+\.[0-9]+-win-x64\.zip', name)
+              assert re.fullmatch(r'(sonora|worktable|padforge|velvet|nook|umbra)-[0-9]+\.[0-9]+\.[0-9]+-win-x64\.zip', name)
+              if name in targets:
+                  assert targets[name]['size'] == package['size']
+                  assert targets[name]['digest'] == 'sha256:' + package['sha256']
+                  print(f'Already verified: {name}')
+                  continue
+              if name not in sources:
+                  print(f'New package must be staged separately: {name}')
+                  continue
               subprocess.run(['gh', 'release', 'download', os.environ['SOURCE_TAG'], '--pattern', name], check=True)
               digest = hashlib.sha256()
               size = 0
@@ -47,5 +59,6 @@ jobs:
                       size += len(data)
               assert digest.hexdigest() == package['sha256'], f'Hash mismatch: {name}'
               assert size == package['size'], f'Size mismatch: {name}'
+              assert subprocess.check_output(['gh', 'release', 'view', os.environ['TARGET_TAG'], '--json', 'isDraft', '--jq', '.isDraft'], text=True).strip() == 'true', 'Target must remain draft'
               subprocess.run(['gh', 'release', 'upload', os.environ['TARGET_TAG'], name], check=True)
               print(f'Copied verified {name}')
