@@ -1,0 +1,75 @@
+name: Assemble verified component
+on:
+  workflow_dispatch:
+    inputs:
+      staging_tag:
+        description: Draft release containing the package parts
+        required: true
+        type: string
+      target_tag:
+        description: Public release receiving the completed package
+        required: true
+        type: string
+      package_name:
+        description: Versioned ZIP filename
+        required: true
+        type: string
+      sha256:
+        description: Expected SHA-256 of the complete ZIP
+        required: true
+        type: string
+      bytes:
+        description: Expected byte count of the complete ZIP
+        required: true
+        type: string
+permissions:
+  contents: write
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      STAGING_TAG: ${{ inputs.staging_tag }}
+      TARGET_TAG: ${{ inputs.target_tag }}
+      PACKAGE_NAME: ${{ inputs.package_name }}
+      EXPECTED_SHA256: ${{ inputs.sha256 }}
+      EXPECTED_BYTES: ${{ inputs.bytes }}
+    steps:
+      - name: Validate publication parameters
+        shell: bash
+        run: |
+          [[ "$PACKAGE_NAME" =~ ^(sonora|worktable|padforge|velvet)-[0-9]+\.[0-9]+\.[0-9]+-win-x64\.zip$ ]]
+          [[ "$EXPECTED_SHA256" =~ ^[a-f0-9]{64}$ ]]
+          [[ "$EXPECTED_BYTES" =~ ^[0-9]+$ ]]
+          [[ "$STAGING_TAG" =~ ^[a-zA-Z0-9._-]+$ ]]
+          [[ "$TARGET_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          gh release view "$STAGING_TAG" --json isDraft --jq '.isDraft' | grep -x true
+      - name: Download staged parts
+        run: gh release download "$STAGING_TAG" --pattern "$PACKAGE_NAME.part*" --dir parts
+      - name: Assemble and verify exact package
+        shell: python
+        run: |
+          import hashlib, os, pathlib, zipfile
+          package = os.environ['PACKAGE_NAME']
+          parts = sorted(pathlib.Path('parts').glob(package + '.part*'))
+          assert parts, 'No package parts were downloaded'
+          digest = hashlib.sha256()
+          total = 0
+          with open(package, 'xb') as output:
+              for i, part in enumerate(parts, 1):
+                  assert part.name == f'{package}.part{i:04}', 'Missing or unexpected package part'
+                  with part.open('rb') as source:
+                      while chunk := source.read(1024 * 1024):
+                          output.write(chunk)
+                          digest.update(chunk)
+                          total += len(chunk)
+          assert total == int(os.environ['EXPECTED_BYTES']), 'Package size mismatch'
+          assert digest.hexdigest() == os.environ['EXPECTED_SHA256'], 'Package SHA-256 mismatch'
+          with zipfile.ZipFile(package) as archive:
+              assert archive.testzip() is None, 'ZIP integrity check failed'
+              assert any(name.lower().endswith('.exe') for name in archive.namelist()), 'ZIP has no executable'
+          print(f'Verified {package}: {total} bytes; SHA-256 {digest.hexdigest()}')
+      - name: Publish immutable ZIP
+        run: gh release upload "$TARGET_TAG" "$PACKAGE_NAME"
