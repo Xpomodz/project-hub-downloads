@@ -8,6 +8,75 @@ One installer for **Sonora, Worktable, PadForge, Velvet, AI Nook, and Umbra**. C
 
 [Release notes and files](https://github.com/Xpomodz/project-hub-downloads/releases/latest) · [SHA-256 checksums](https://github.com/Xpomodz/project-hub-downloads/releases/latest/download/SHA256SUMS.txt)
 
+## What each program does
+
+### Worktable — organize projects and work on code
+
+Keep your projects, important files, and next steps in one place.
+
+- Arrange projects on tables, pin files, and keep notes, checklists, and app shortcuts beside each project.
+- Use the local Qwen coding desk to ask about code and review proposed edits.
+- Give a saved environment a goal. It works in a separate copy, previews websites, runs the checks you enable, and saves progress so you can pause and resume.
+
+AI work follows the limits you set and needs your final review.
+
+**Newer Worktable changes — 2.10**
+
+- **Recover from cut-off replies:** automatically retry with smaller edits instead of stopping at the first response limit.
+- **Check each success criterion:** run a separate AI review of the saved code and actual check results before marking a pass ready for review. Claimed passes need matching source evidence, and an untouched starter page cannot count as finished.
+- **Keep repairing unfinished work:** send failed or unverified criteria back to the worker, with progress shown in a Completion review panel.
+- **Resume reviews safely:** save interrupted reviews and rerun checks before reviewing again. Browser checks also catch placeholder links, sample scrolling down and back up, and apply reduced-motion settings before the page starts.
+
+These changes were tested locally with 164 automated tests, a packaged desktop recovery-and-repair check, and a small real local-model reviewer check. Work continues within your configured limits; final visual and functional acceptance still needs your review.
+
+**Download status:** Project Hub 1.3.3 currently distributes Worktable 2.9.3. The 2.10 update above has been installed and tested locally but is not yet in the public installer or update feed.
+
+### Sonora — mix and route your audio
+
+Control what you hear and what other apps receive.
+
+- Mix your microphone, music, games, and other audio with separate volume and mute controls.
+- Send different mixes to headphones, speakers, voice chat, or a stream using your selected devices and virtual audio cables.
+- Adjust voice processing and music EQ, lower music while you speak, and record an output mix.
+
+### PadForge — customize your controller
+
+Create a controller setup that fits the game or the way you use your PC.
+
+- Assign controller buttons to gamepad, keyboard, or mouse actions.
+- Adjust stick deadzones, response, pointer speed, and trigger activation.
+- Save profiles, link them to detected or manually added games, and optionally switch profiles when a linked game is in front.
+
+### Velvet — local AI, voices, and video captions
+
+Chat with AI and turn text or recordings into spoken audio and captioned videos.
+
+- Type a message or record one for local transcription, then review the text before sending.
+- Add voices from short recordings, personalize characters and portraits, hear replies aloud, and save speech clips from Voice studio.
+- Add a video, choose its audio, generate timed captions, adjust them, and export the result.
+
+### AI Nook — AI chat on your desktop
+
+Keep a small chat window nearby without filling your screen.
+
+- Chat through your existing Codex sign-in or choose an installed local model.
+- Reopen conversations, keep drafts, and send project briefs or replies between Nook, Worktable, and Velvet.
+- Move, resize, lock, or hide the widget. Its animated cat docks into Worktable's sidebar while you use Worktable.
+
+### Umbra — review cleanup and storage
+
+See what is taking up space and choose what to clean up.
+
+- Find old temporary files, large files, duplicate content, and other storage opportunities.
+- Move selected files into Recovery so you can restore them. Permanently release a Recovery session when you are ready to reclaim its space.
+- Inspect startup items, open app and game uninstallers, and view basic PC resource usage.
+
+### How they work together
+
+Project Hub installs, opens, and updates the tools you choose. Worktable keeps the project organized; Nook offers quick chat; Velvet adds voice and caption tools. Those three can exchange project briefs and replies, with drafts left for you to review and send. Sonora handles audio, PadForge handles controller profiles, and Umbra helps you review PC cleanup.
+
+## Install your tools
+
 1. Open the installer on Windows 10/11 x64 and click **Next**. It downloads and verifies the setup files automatically.
 2. The tool-choice screen then opens. Choose tools and optional automatic updates. Existing copies are marked **installed** and reused.
 3. Choose a folder. The app-installation window opens automatically with progress for each selected tool: downloaded bytes, percentage, verification, and file extraction.
