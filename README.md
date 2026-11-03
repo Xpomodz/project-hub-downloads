@@ -13,9 +13,15 @@ One installer for **Sonora, Worktable, PadForge, Velvet, AI Nook, and Umbra**. C
 3. Choose a folder. The app-installation window opens automatically with progress for each selected tool: downloaded bytes, percentage, verification, and file extraction.
 4. Wait for the selected apps to finish, review any errors or remaining audio setup, and choose **Finish**. Installed apps can then be opened from Project Hub.
 
-Versions older than 1.0.8 need this installer once. Hubs 1.0.8 and newer can get 1.3.1 through the Hub Updates page or automatic Hub updates. **Update the Hub first**: older Hubs may reject the expanded six-tool catalog until their separate self-updater upgrades the Hub. Current copies of the selected apps are reused. A failed app keeps an error and **Retry** action; other selected apps continue. Closing during installation keeps progress visible. Use **Minimize** while work continues.
+Versions older than 1.0.8 need this installer once. Hubs 1.0.8 and newer can get 1.3.2 through the Hub Updates page or automatic Hub updates. **Update the Hub first**: older Hubs may reject the expanded six-tool catalog until their separate self-updater upgrades the Hub. Current copies of the selected apps are reused. A failed app keeps an error and **Retry** action; other selected apps continue. Closing during installation keeps progress visible. Use **Minimize** while work continues.
 
-## What's new in 1.3.1
+## What's new in 1.3.2
+
+The cumulative release includes **Worktable 2.6.0**, with live environment statistics, activity and preview panels, file-change inspection, device detection, GPU-memory placement, performance presets and Custom CPU/GPU/context controls. **AI Nook 0.4.2** includes current local-chat response and personality improvements. **Sonora 1.0.2** includes current output routing, saved playback settings and branding. PadForge, Velvet and Umbra retain their exact previous packages.
+
+The installer already supported signed component updates. Local project changes do not publish themselves; this release adds the missing verified packages to the public channel. The offline bundle and signed catalog contain the same current six versions.
+
+## Earlier environment updates
 
 **Worktable 2.4.1 fixes environment creation on Windows PCs with a redirected roaming-data folder.** Existing files are kept; retry **Create environment** after updating.
 
@@ -49,11 +55,11 @@ This Windows installer is **unsigned**. Keep Windows security enabled if Windows
 
 | Tool | Version |
 |---|---|
-| Sonora | 1.0.1 |
-| Worktable | 2.4.1 |
+| Sonora | 1.0.2 |
+| Worktable | 2.6.0 |
 | PadForge | 0.2.2 |
 | Velvet | 1.5.0 |
-| AI Nook | 0.4.1 |
+| AI Nook | 0.4.2 |
 | Umbra | 1.2.0 |
 
 This repository distributes public installers, component packages, the signed update catalog, and release documents. Source repositories are maintained separately.
