@@ -4,13 +4,16 @@ One installer for **Sonora, Worktable, PadForge, and Velvet**. Choose the tools 
 
 ## Download
 
-**[Download Project Hub for Windows x64](https://github.com/Xpomodz/project-hub-downloads/releases/latest/download/Project-Hub-Setup-1.0.5-x64.exe)**
+**[Download Project Hub for Windows x64](https://github.com/Xpomodz/project-hub-downloads/releases/latest/download/Project-Hub-Setup-1.0.6-x64.exe)**
 
 [Release notes and files](https://github.com/Xpomodz/project-hub-downloads/releases/latest) · [SHA-256 checksums](https://github.com/Xpomodz/project-hub-downloads/releases/latest/download/SHA256SUMS.txt)
 
 1. Open the installer on Windows 10/11 x64 and click **Next**. It downloads and verifies about 111 MB of setup files automatically.
 2. The tool-choice screen then opens. Choose tools and optional automatic updates. Existing copies are marked **installed** and reused.
-3. Choose a folder and finish setup. Open Project Hub to launch apps or add more later.
+3. Choose a folder. The app-installation window opens automatically with progress for each selected tool: downloaded bytes, percentage, verification, and file extraction.
+4. Wait for the selected apps to finish, review any errors or remaining audio setup, and choose **Finish**. Installed apps can then be opened from Project Hub.
+
+Run this new installer over an existing Hub to receive these installer fixes. Current copies of PadForge, Velvet, Worktable or Sonora are reused. A failed app keeps an error and **Retry** action; other selected apps continue. Closing during installation keeps progress visible. Use **Minimize** while work continues.
 
 **Sonora audio drivers:** setup checks existing VB-CABLE and Hi-Fi Cable drivers and offers missing ones. The original base VB-CABLE package is included; Hi-Fi Cable downloads directly from VB-Audio when selected. Click **Install**, approve the Windows administrator prompt, then restart Windows after installing drivers. Reopen **Audio drivers** in Project Hub or **Audio driver setup** in Sonora Connections to finish later. Background updates never launch driver installers.
 
