@@ -4,7 +4,7 @@ One installer for **Sonora, Worktable, PadForge, and Velvet**. Choose the tools 
 
 ## Download
 
-**[Download Project Hub for Windows x64](https://github.com/Xpomodz/project-hub-downloads/releases/latest/download/Project-Hub-Setup-1.0.6-x64.exe)**
+**[Download Project Hub for Windows x64](https://github.com/Xpomodz/project-hub-downloads/releases/latest/download/Project-Hub-Setup-1.0.8-x64.exe)**
 
 [Release notes and files](https://github.com/Xpomodz/project-hub-downloads/releases/latest) · [SHA-256 checksums](https://github.com/Xpomodz/project-hub-downloads/releases/latest/download/SHA256SUMS.txt)
 
@@ -14,6 +14,8 @@ One installer for **Sonora, Worktable, PadForge, and Velvet**. Choose the tools 
 4. Wait for the selected apps to finish, review any errors or remaining audio setup, and choose **Finish**. Installed apps can then be opened from Project Hub.
 
 Run this new installer over an existing Hub to receive these installer fixes. Current copies of PadForge, Velvet, Worktable or Sonora are reused. A failed app keeps an error and **Retry** action; other selected apps continue. Closing during installation keeps progress visible. Use **Minimize** while work continues.
+
+**Update Project Hub itself:** older versions need this download once. Then enable **Settings → Automatic updates for Project Hub**. Future Hub updates download automatically and apply when the Hub is minimized or in the tray and app installation/audio setup is idle. This separate preference defaults off and enables Start with Windows. **Updates → Restart to update** applies a prepared Hub update manually. Installed tools and settings are preserved.
 
 **Sonora audio drivers:** setup checks existing VB-CABLE and Hi-Fi Cable drivers and offers missing ones. The original base VB-CABLE package is included; Hi-Fi Cable downloads directly from VB-Audio when selected. Click **Install**, approve the Windows administrator prompt, then restart Windows after installing drivers. Reopen **Audio drivers** in Project Hub or **Audio driver setup** in Sonora Connections to finish later. Background updates never launch driver installers.
 
