@@ -1,0 +1,51 @@
+name: Copy verified components to draft release
+on:
+  workflow_dispatch:
+    inputs:
+      source_tag:
+        description: Existing release containing component ZIPs
+        required: true
+        type: string
+      target_tag:
+        description: Draft release with the next signed catalog
+        required: true
+        type: string
+permissions:
+  contents: write
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      SOURCE_TAG: ${{ inputs.source_tag }}
+      TARGET_TAG: ${{ inputs.target_tag }}
+    steps:
+      - name: Require a draft target and safe tags
+        run: |
+          [[ "$SOURCE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          [[ "$TARGET_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          gh release view "$TARGET_TAG" --json isDraft --jq '.isDraft' | grep -x true
+          gh release download "$TARGET_TAG" --pattern catalog.json
+      - name: Copy exact catalog packages
+        shell: python
+        run: |
+          import hashlib, json, os, re, subprocess
+          with open('catalog.json') as source:
+              catalog = json.load(source)
+          for app in catalog['payload']['apps']:
+              package = app['package']
+              name = package['file']
+              assert re.fullmatch(r'(sonora|worktable|padforge|velvet)-[0-9]+\.[0-9]+\.[0-9]+-win-x64\.zip', name)
+              subprocess.run(['gh', 'release', 'download', os.environ['SOURCE_TAG'], '--pattern', name], check=True)
+              digest = hashlib.sha256()
+              size = 0
+              with open(name, 'rb') as source:
+                  while data := source.read(1024 * 1024):
+                      digest.update(data)
+                      size += len(data)
+              assert digest.hexdigest() == package['sha256'], f'Hash mismatch: {name}'
+              assert size == package['size'], f'Size mismatch: {name}'
+              subprocess.run(['gh', 'release', 'upload', os.environ['TARGET_TAG'], name], check=True)
+              print(f'Copied verified {name}')
