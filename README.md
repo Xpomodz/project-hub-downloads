@@ -4,13 +4,17 @@ One installer for **Sonora, Worktable, PadForge, and Velvet**. Choose the tools 
 
 ## Download
 
-**[Download Project Hub for Windows x64](https://github.com/Xpomodz/project-hub-downloads/releases/latest/download/Project-Hub-Setup-1.0.4-x64.exe)**
+**[Download Project Hub for Windows x64](https://github.com/Xpomodz/project-hub-downloads/releases/latest/download/Project-Hub-Setup-1.0.5-x64.exe)**
 
 [Release notes and files](https://github.com/Xpomodz/project-hub-downloads/releases/latest) · [SHA-256 checksums](https://github.com/Xpomodz/project-hub-downloads/releases/latest/download/SHA256SUMS.txt)
 
 1. Open the installer on Windows 10/11 x64 and click **Next**. It downloads and verifies about 111 MB of setup files automatically.
 2. The tool-choice screen then opens. Choose tools and optional automatic updates. Existing copies are marked **installed** and reused.
 3. Choose a folder and finish setup. Open Project Hub to launch apps or add more later.
+
+**Sonora audio drivers:** setup checks existing VB-CABLE and Hi-Fi Cable drivers and offers missing ones. The original base VB-CABLE package is included; Hi-Fi Cable downloads directly from VB-Audio when selected. Click **Install**, approve the Windows administrator prompt, then restart Windows after installing drivers. Reopen **Audio drivers** in Project Hub or **Audio driver setup** in Sonora Connections to finish later. Background updates never launch driver installers.
+
+VB-CABLE and Hi-Fi Cable are separate VB-Audio donationware products: [origin](https://www.vb-cable.com/), [Hi-Fi Cable](https://vb-audio.com/Cable/), [licenses and donations](https://vb-audio.com/Services/licensing.htm). All participation is welcome. Hi-Fi Cable setup requires Internet access even with an offline Sonora package.
 
 An Internet connection is required. Download only the EXE linked above; it fetches and verifies the setup parts automatically, then downloads the tools you select. The individual `.part` assets are supporting files, not separate steps for you. Automatic update checks use this repository's signed public release feed; only newer published app versions are installed. Updates wait while an app is running. Existing user data is preserved, and standalone updates retain the original app folder.
 
@@ -22,7 +26,7 @@ This Windows installer is **unsigned**. Keep Windows security enabled if Windows
 
 | Tool | Version |
 |---|---|
-| Sonora | 1.0.0 (collection release identifier) |
+| Sonora | 1.0.1 |
 | Worktable | 2.0.1 |
 | PadForge | 0.2.2 |
 | Velvet | 1.4.0 |
