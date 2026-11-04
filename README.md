@@ -20,16 +20,18 @@ Keep your projects, important files, and next steps in one place.
 
 AI work follows the limits you set and needs your final review.
 
-**Newer Worktable changes — 2.10**
+**Worktable 2.11.4**
 
-- **Recover from cut-off replies:** automatically retry with smaller edits instead of stopping at the first response limit.
+- **Preserve generated drafts:** keep separate full response archives through retries, pauses, and restarts, with failure reasons and source-save outcomes.
+- **Save smaller increments:** stop oversized source while it streams, shrink retry budgets, and distinguish verified file saves from model claims.
+- **Release model RAM on exit:** stop Ollama servers launched by Worktable and their model-runner children; pre-existing external servers remain under their own control.
 - **Check each success criterion:** run a separate AI review of the saved code and actual check results before marking a pass ready for review. Claimed passes need matching source evidence, and an untouched starter page cannot count as finished.
 - **Keep repairing unfinished work:** send failed or unverified criteria back to the worker, with progress shown in a Completion review panel.
 - **Resume reviews safely:** save interrupted reviews and rerun checks before reviewing again. Browser checks also catch placeholder links, sample scrolling down and back up, and apply reduced-motion settings before the page starts.
 
-These changes were tested locally with 164 automated tests, a packaged desktop recovery-and-repair check, and a small real local-model reviewer check. Work continues within your configured limits; final visual and functional acceptance still needs your review.
+These changes passed 193 automated tests, packaged desktop/mobile recovery checks, and installed-app preservation and shutdown checks. Work continues within your configured limits; final visual and functional acceptance still needs your review.
 
-**Download status:** Project Hub 1.3.3 currently distributes Worktable 2.9.3. The 2.10 update above has been installed and tested locally but is not yet in the public installer or update feed.
+Project Hub 1.3.4 distributes Worktable 2.11.4 through its installer and signed update catalog.
 
 ### Sonora — mix and route your audio
 
@@ -82,7 +84,11 @@ Project Hub installs, opens, and updates the tools you choose. Worktable keeps t
 3. Choose a folder. The app-installation window opens automatically with progress for each selected tool: downloaded bytes, percentage, verification, and file extraction.
 4. Wait for the selected apps to finish, review any errors or remaining audio setup, and choose **Finish**. Installed apps can then be opened from Project Hub.
 
-Versions older than 1.0.8 need this installer once. Hubs 1.0.8 and newer can get 1.3.3 through the Hub Updates page or automatic Hub updates. **Update the Hub first**: older Hubs may reject the expanded six-tool catalog until their separate self-updater upgrades the Hub. Current copies of the selected apps are reused. A failed app keeps an error and **Retry** action; other selected apps continue. Closing during installation keeps progress visible. Use **Minimize** while work continues.
+Versions older than 1.0.8 need this installer once. Hubs 1.0.8 and newer can get 1.3.4 through the Hub Updates page or automatic Hub updates. **Update the Hub first**: older Hubs may reject the expanded six-tool catalog until their separate self-updater upgrades the Hub. Current copies of the selected apps are reused. A failed app keeps an error and **Retry** action; other selected apps continue. Closing during installation keeps progress visible. Use **Minimize** while work continues.
+
+## What's new in 1.3.4
+
+The installer and signed component feed now include Worktable 2.11.4, with durable generation drafts, source-save verification, smaller implementation steps, saved thought history, criterion review, and owned-engine shutdown cleanup. The other five component packages retain their exact previously released bytes. Existing projects, environment goals, saved work, and model preferences remain in their existing profile.
 
 ## What's new in 1.3.3
 
@@ -131,7 +137,7 @@ This Windows installer is **unsigned**. Keep Windows security enabled if Windows
 | Tool | Version |
 |---|---|
 | Sonora | 1.0.3 |
-| Worktable | 2.9.3 |
+| Worktable | 2.11.4 |
 | PadForge | 0.3.1 |
 | Velvet | 1.5.2 |
 | AI Nook | 0.4.6 |
